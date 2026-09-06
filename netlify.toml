@@ -1,3 +1,6 @@
 [build]
   command = "mkdir -p public && sed -e \"s|__SUPABASE_URL__|${SUPABASE_URL}|g\" -e \"s|__SUPABASE_ANON_KEY__|${SUPABASE_ANON_KEY}|g\" index.html > public/index.html"
   publish = "public"
+
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "SUPABASE_ANON_KEY,SUPABASE_URL,SUPABASE_DATABASE_URL"
